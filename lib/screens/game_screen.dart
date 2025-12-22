@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../models/game_config.dart';
 import '../models/game_result.dart';
 import '../models/question.dart';
 import '../services/question_generator.dart';
 import '../services/weight_service.dart';
+import '../widgets/numeric_keypad.dart';
 import 'result_screen.dart';
 
 class GameScreen extends StatefulWidget {
@@ -21,8 +21,7 @@ class _GameScreenState extends State<GameScreen> {
   QuestionGenerator? _generator;
   Question? _currentQuestion;
   final List<Question> _answeredQuestions = [];
-  final TextEditingController _answerController = TextEditingController();
-  final FocusNode _focusNode = FocusNode();
+  String _currentInput = '';
   final WeightService _weightService = WeightService();
   bool _isInitialized = false;
 
@@ -61,10 +60,6 @@ class _GameScreenState extends State<GameScreen> {
     setState(() {
       _isInitialized = true;
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _focusNode.requestFocus();
-    });
   }
 
   void _startTimer() {
@@ -90,16 +85,13 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void dispose() {
     _timer?.cancel();
-    _answerController.dispose();
-    _focusNode.dispose();
     super.dispose();
   }
 
   void _submitAnswer() {
-    final input = _answerController.text.trim();
-    if (input.isEmpty) return;
+    if (_currentInput.isEmpty) return;
 
-    final userAnswer = int.tryParse(input);
+    final userAnswer = int.tryParse(_currentInput);
     if (userAnswer == null) return;
 
     _questionStopwatch.stop();
@@ -145,11 +137,10 @@ class _GameScreenState extends State<GameScreen> {
 
     setState(() {
       _currentQuestion = _generator!.generate();
-      _answerController.clear();
+      _currentInput = '';
     });
     _questionStopwatch.reset();
     _questionStopwatch.start();
-    _focusNode.requestFocus();
   }
 
   void _endGame() {
@@ -188,16 +179,16 @@ class _GameScreenState extends State<GameScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Column(
             children: [
               _buildProgressIndicator(),
-              const Spacer(),
+              const SizedBox(height: 16),
               _buildQuestionDisplay(),
-              const SizedBox(height: 32),
-              _buildAnswerInput(),
+              const SizedBox(height: 16),
+              _buildAnswerDisplay(),
               const Spacer(),
-              _buildSubmitButton(),
+              _buildKeypadWithSubmit(),
             ],
           ),
         ),
@@ -276,39 +267,79 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  Widget _buildAnswerInput() {
-    return SizedBox(
+  Widget _buildAnswerDisplay() {
+    return Container(
       width: 200,
-      child: TextField(
-        controller: _answerController,
-        focusNode: _focusNode,
-        keyboardType: const TextInputType.numberWithOptions(signed: true),
-        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^-?\d*'))],
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.grey.shade400, width: 2),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Text(
+        _currentInput.isEmpty ? '?' : _currentInput,
         textAlign: TextAlign.center,
-        style: const TextStyle(fontSize: 32),
-        decoration: const InputDecoration(
-          hintText: '?',
-          border: OutlineInputBorder(),
+        style: TextStyle(
+          fontSize: 36,
+          fontWeight: FontWeight.bold,
+          color: _currentInput.isEmpty ? Colors.grey : Colors.black,
         ),
-        enabled: !_showingFeedback,
-        onSubmitted: (_) => _submitAnswer(),
       ),
     );
   }
 
-  Widget _buildSubmitButton() {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: _showingFeedback ? null : _submitAnswer,
-        style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+  Widget _buildKeypadWithSubmit() {
+    return Column(
+      children: [
+        NumericKeypad(
+          onKeyPressed: _onKeyPressed,
+          onDelete: _onDelete,
+          onSubmit: _submitAnswer,
+          submitEnabled: !_showingFeedback && _currentInput.isNotEmpty,
         ),
-        child: const Text('Valider', style: TextStyle(fontSize: 24)),
-      ),
+        const SizedBox(height: 12),
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: (_showingFeedback || _currentInput.isEmpty)
+                ? null
+                : _submitAnswer,
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              foregroundColor: Theme.of(context).colorScheme.onPrimary,
+            ),
+            child: const Text('Valider', style: TextStyle(fontSize: 24)),
+          ),
+        ),
+      ],
     );
+  }
+
+  void _onKeyPressed(String key) {
+    if (_showingFeedback) return;
+    setState(() {
+      if (key == '-') {
+        if (_currentInput.isEmpty) {
+          _currentInput = '-';
+        } else if (_currentInput == '-') {
+          _currentInput = '';
+        }
+      } else {
+        if (_currentInput.length < 10) {
+          _currentInput += key;
+        }
+      }
+    });
+  }
+
+  void _onDelete() {
+    if (_showingFeedback) return;
+    setState(() {
+      if (_currentInput.isNotEmpty) {
+        _currentInput = _currentInput.substring(0, _currentInput.length - 1);
+      }
+    });
   }
 
   void _confirmExit() {
