@@ -40,7 +40,12 @@ class _ConfigScreenState extends State<ConfigScreen> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.only(
+          left: 16,
+          right: 16,
+          top: 16,
+          bottom: 16 + MediaQuery.of(context).padding.bottom,
+        ),
         child: Form(
           key: _formKey,
           child: Column(
