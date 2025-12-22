@@ -31,6 +31,7 @@ class _GameScreenState extends State<GameScreen> {
   int _elapsedSeconds = 0;
   bool _showingFeedback = false;
   bool _lastAnswerCorrect = false;
+  final Stopwatch _questionStopwatch = Stopwatch();
 
   @override
   void initState() {
@@ -48,6 +49,7 @@ class _GameScreenState extends State<GameScreen> {
       weightService: _weightService,
     );
     _currentQuestion = _generator!.generate();
+    _questionStopwatch.start();
 
     if (widget.config.mode == GameMode.timed) {
       _remainingSeconds = widget.config.duration!;
@@ -100,7 +102,10 @@ class _GameScreenState extends State<GameScreen> {
     final userAnswer = int.tryParse(input);
     if (userAnswer == null) return;
 
-    _currentQuestion!.answer(userAnswer);
+    _questionStopwatch.stop();
+    final responseTimeMs = _questionStopwatch.elapsedMilliseconds;
+
+    _currentQuestion!.answer(userAnswer, timeMs: responseTimeMs);
     _answeredQuestions.add(_currentQuestion!);
 
     _weightService.recordAnswer(
@@ -108,6 +113,7 @@ class _GameScreenState extends State<GameScreen> {
       b: _currentQuestion!.b,
       operator: _currentQuestion!.operator,
       correct: _currentQuestion!.isCorrect!,
+      responseTimeMs: responseTimeMs,
     );
 
     if (widget.config.showImmediateFeedback) {
@@ -141,6 +147,8 @@ class _GameScreenState extends State<GameScreen> {
       _currentQuestion = _generator!.generate();
       _answerController.clear();
     });
+    _questionStopwatch.reset();
+    _questionStopwatch.start();
     _focusNode.requestFocus();
   }
 

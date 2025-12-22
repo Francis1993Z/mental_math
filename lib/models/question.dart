@@ -5,6 +5,7 @@ class Question {
   final int correctAnswer;
   int? userAnswer;
   bool? isCorrect;
+  int? responseTimeMs;
 
   Question({
     required this.a,
@@ -15,8 +16,9 @@ class Question {
 
   String get display => '$a $operator $b = ?';
 
-  void answer(int value) {
+  void answer(int value, {int? timeMs}) {
     userAnswer = value;
     isCorrect = value == correctAnswer;
+    responseTimeMs = timeMs;
   }
 }
