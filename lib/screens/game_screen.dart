@@ -5,6 +5,7 @@ import '../models/game_config.dart';
 import '../models/game_result.dart';
 import '../models/question.dart';
 import '../services/question_generator.dart';
+import '../services/weight_service.dart';
 import 'result_screen.dart';
 
 class GameScreen extends StatefulWidget {
@@ -17,11 +18,13 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
-  late QuestionGenerator _generator;
-  late Question _currentQuestion;
+  QuestionGenerator? _generator;
+  Question? _currentQuestion;
   final List<Question> _answeredQuestions = [];
   final TextEditingController _answerController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
+  final WeightService _weightService = WeightService();
+  bool _isInitialized = false;
 
   Timer? _timer;
   int _remainingSeconds = 0;
@@ -32,12 +35,19 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void initState() {
     super.initState();
+    _initializeGame();
+  }
+
+  Future<void> _initializeGame() async {
+    await _weightService.init();
+
     _generator = QuestionGenerator(
       minValue: widget.config.minValue,
       maxValue: widget.config.maxValue,
       operators: widget.config.operators,
+      weightService: _weightService,
     );
-    _currentQuestion = _generator.generate();
+    _currentQuestion = _generator!.generate();
 
     if (widget.config.mode == GameMode.timed) {
       _remainingSeconds = widget.config.duration!;
@@ -45,6 +55,10 @@ class _GameScreenState extends State<GameScreen> {
     } else {
       _startElapsedTimer();
     }
+
+    setState(() {
+      _isInitialized = true;
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _focusNode.requestFocus();
@@ -86,13 +100,20 @@ class _GameScreenState extends State<GameScreen> {
     final userAnswer = int.tryParse(input);
     if (userAnswer == null) return;
 
-    _currentQuestion.answer(userAnswer);
-    _answeredQuestions.add(_currentQuestion);
+    _currentQuestion!.answer(userAnswer);
+    _answeredQuestions.add(_currentQuestion!);
+
+    _weightService.recordAnswer(
+      a: _currentQuestion!.a,
+      b: _currentQuestion!.b,
+      operator: _currentQuestion!.operator,
+      correct: _currentQuestion!.isCorrect!,
+    );
 
     if (widget.config.showImmediateFeedback) {
       setState(() {
         _showingFeedback = true;
-        _lastAnswerCorrect = _currentQuestion.isCorrect!;
+        _lastAnswerCorrect = _currentQuestion!.isCorrect!;
       });
 
       Future.delayed(const Duration(milliseconds: 800), () {
@@ -117,7 +138,7 @@ class _GameScreenState extends State<GameScreen> {
     }
 
     setState(() {
-      _currentQuestion = _generator.generate();
+      _currentQuestion = _generator!.generate();
       _answerController.clear();
     });
     _focusNode.requestFocus();
@@ -138,6 +159,16 @@ class _GameScreenState extends State<GameScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (!_isInitialized) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Chargement...'),
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        ),
+        body: const Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: _buildAppBarTitle(),
@@ -217,14 +248,14 @@ class _GameScreenState extends State<GameScreen> {
       child: Column(
         children: [
           Text(
-            _currentQuestion.display,
+            _currentQuestion!.display,
             style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
           ),
           if (_showingFeedback && !_lastAnswerCorrect)
             Padding(
               padding: const EdgeInsets.only(top: 16),
               child: Text(
-                'Réponse: ${_currentQuestion.correctAnswer}',
+                'Réponse: ${_currentQuestion!.correctAnswer}',
                 style: const TextStyle(
                   fontSize: 24,
                   color: Colors.red,
