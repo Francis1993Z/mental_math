@@ -78,6 +78,8 @@ class WeightService {
 
   Map<String, double> getAllWeights() => Map.unmodifiable(_weights);
 
+  double getAverageResponseTime() => _avgResponseTimeMs;
+
   Future<void> resetWeights() async {
     _weights.clear();
     await _prefs?.remove(_weightsKey);

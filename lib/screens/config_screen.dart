@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/game_config.dart';
+import 'debug_screen.dart';
 import 'game_screen.dart';
 
 class ConfigScreen extends StatefulWidget {
@@ -32,7 +33,10 @@ class _ConfigScreenState extends State<ConfigScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Calcul Mental'),
+        title: GestureDetector(
+          onLongPress: _openDebugScreen,
+          child: const Text('Calcul Mental'),
+        ),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SingleChildScrollView(
@@ -294,5 +298,11 @@ class _ConfigScreenState extends State<ConfigScreen> {
     Navigator.of(
       context,
     ).push(MaterialPageRoute(builder: (context) => GameScreen(config: config)));
+  }
+
+  void _openDebugScreen() {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (context) => const DebugScreen()));
   }
 }
