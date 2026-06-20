@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/config_screen.dart';
+import 'screens/menu_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const ConfigScreen(),
+      home: const MenuScreen(),
     );
   }
 }
