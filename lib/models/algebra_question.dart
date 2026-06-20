@@ -1,5 +1,17 @@
-/// Categories available in the Algebre & Trigo mode.
-enum AlgebraCategory { trigo, algebra, log, exp, derivative }
+/// Categories available across the LaTeX-based game modes.
+enum AlgebraCategory { trigo, algebra, log, exp, derivative, limites }
+
+/// Categories that belong to the "Algebre & Trigo" mode.
+const List<AlgebraCategory> algebraTrigoCategories = [
+  AlgebraCategory.trigo,
+  AlgebraCategory.algebra,
+  AlgebraCategory.log,
+  AlgebraCategory.exp,
+  AlgebraCategory.derivative,
+];
+
+/// Categories that belong to the "Limites" mode.
+const List<AlgebraCategory> limitesCategories = [AlgebraCategory.limites];
 
 extension AlgebraCategoryX on AlgebraCategory {
   /// The key used in questions.json.
@@ -15,6 +27,8 @@ extension AlgebraCategoryX on AlgebraCategory {
         return 'exp';
       case AlgebraCategory.derivative:
         return 'derivative';
+      case AlgebraCategory.limites:
+        return 'limites';
     }
   }
 
@@ -31,6 +45,8 @@ extension AlgebraCategoryX on AlgebraCategory {
         return 'Exponentielle / e';
       case AlgebraCategory.derivative:
         return 'Dérivées de base';
+      case AlgebraCategory.limites:
+        return 'Limites';
     }
   }
 
@@ -42,13 +58,24 @@ extension AlgebraCategoryX on AlgebraCategory {
   }
 }
 
-/// Question type: multiple choice or "complete the right-hand side".
-enum AlgebraQuestionType { qcm, complete }
+/// Question type:
+/// - [qcm]: generic multiple choice
+/// - [complete]: complete the right-hand side of an identity
+/// - [qcmResultat]: Limites mode, choose the value of the limit
+/// - [qcmMethode]: Limites mode, identify the indeterminate form / technique
+enum AlgebraQuestionType { qcm, complete, qcmResultat, qcmMethode }
 
 AlgebraQuestionType _typeFromString(String? value) {
-  return value == 'complete'
-      ? AlgebraQuestionType.complete
-      : AlgebraQuestionType.qcm;
+  switch (value) {
+    case 'complete':
+      return AlgebraQuestionType.complete;
+    case 'qcm_resultat':
+      return AlgebraQuestionType.qcmResultat;
+    case 'qcm_methode':
+      return AlgebraQuestionType.qcmMethode;
+    default:
+      return AlgebraQuestionType.qcm;
+  }
 }
 
 /// A single formula-recognition question stored as LaTeX strings.
@@ -60,6 +87,10 @@ class AlgebraQuestion {
   final String promptLatex;
   final String answerLatex;
   final List<String> choicesLatex;
+
+  /// Optional enriched feedback (e.g. indeterminate form + technique).
+  /// Shown after answering when present. Mainly used by the Limites mode.
+  final String? hintLatex;
 
   // Runtime answer tracking (mirrors the numeric Question model).
   int? selectedIndex;
@@ -74,6 +105,7 @@ class AlgebraQuestion {
     required this.promptLatex,
     required this.answerLatex,
     required this.choicesLatex,
+    this.hintLatex,
   });
 
   /// Index of the correct choice within [choicesLatex].
@@ -126,6 +158,9 @@ class AlgebraQuestion {
         ? difficultyRaw
         : int.tryParse('$difficultyRaw') ?? 1;
 
+    final hintRaw = json['hint_latex'];
+    final hint = (hintRaw is String && hintRaw.isNotEmpty) ? hintRaw : null;
+
     return AlgebraQuestion(
       id: id,
       category: category,
@@ -134,6 +169,7 @@ class AlgebraQuestion {
       promptLatex: promptLatex,
       answerLatex: answerLatex,
       choicesLatex: choices,
+      hintLatex: hint,
     );
   }
 }

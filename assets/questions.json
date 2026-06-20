@@ -420,6 +420,206 @@
       "u'v - uv'",
       "\\dfrac{u'v - uv'}{v^2}"
     ]
+  },
+  {
+    "id": "lim_l1_001",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 2}\\left(x^2 + 1\\right) = \\;?",
+    "answer_latex": "5",
+    "choices_latex": ["5", "3", "4", "\\text{n'existe pas}"],
+    "hint_latex": "\\text{Substitution directe}"
+  },
+  {
+    "id": "lim_l1_002",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_methode",
+    "prompt_latex": "\\text{Quelle forme est indéterminée ?}",
+    "answer_latex": "\\frac{0}{0}",
+    "choices_latex": ["\\frac{0}{0}", "\\frac{5}{0}", "\\frac{0}{5}", "\\frac{3}{\\infty}"],
+    "hint_latex": "\\frac{0}{5}=0,\\ \\frac{3}{\\infty}=0,\\ \\text{mais } \\frac{0}{0} \\text{ est indéterminée}"
+  },
+  {
+    "id": "lim_l1_003",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0^+}\\frac{5}{x} = \\;?",
+    "answer_latex": "+\\infty",
+    "choices_latex": ["+\\infty", "-\\infty", "0", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{5}{0^+} \\Rightarrow +\\infty"
+  },
+  {
+    "id": "lim_l1_004",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{3}{x} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "3", "+\\infty", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{3}{\\infty} \\Rightarrow 0"
+  },
+  {
+    "id": "lim_l1_005",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_methode",
+    "prompt_latex": "\\frac{0}{5} \\;\\text{est une forme ?}",
+    "answer_latex": "\\text{déterminée}",
+    "choices_latex": ["\\text{déterminée}", "\\text{indéterminée}", "+\\infty", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{0}{5} = 0 \\;\\text{(déterminée)}"
+  },
+  {
+    "id": "lim_l2_001",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 3}\\frac{x^2-9}{x-3} = \\;?",
+    "answer_latex": "6",
+    "choices_latex": ["6", "0", "\\infty", "\\text{n'existe pas}"],
+    "hint_latex": "\\text{Forme } \\frac{0}{0} \\Rightarrow \\text{factoriser}"
+  },
+  {
+    "id": "lim_l2_002",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_methode",
+    "prompt_latex": "\\lim_{x\\to 3}\\frac{x^2-9}{x-3} \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{factorisation}",
+    "choices_latex": ["\\text{factorisation}", "\\text{conjugué}", "\\text{termes dominants}", "\\text{L'Hôpital}"],
+    "hint_latex": "\\frac{0}{0} \\Rightarrow \\text{factoriser le numérateur}"
+  },
+  {
+    "id": "lim_l2_003",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{\\sqrt{x+1}-1}{x} = \\;?",
+    "answer_latex": "\\frac{1}{2}",
+    "choices_latex": ["\\frac{1}{2}", "0", "1", "\\text{n'existe pas}"],
+    "hint_latex": "\\text{Multiplier par le conjugué}"
+  },
+  {
+    "id": "lim_l2_004",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_methode",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{\\sqrt{x+1}-1}{x} \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{conjugué}",
+    "choices_latex": ["\\text{conjugué}", "\\text{factorisation}", "\\text{termes dominants}", "\\text{substitution}"],
+    "hint_latex": "\\text{Racine } \\Rightarrow \\text{conjugué}"
+  },
+  {
+    "id": "lim_l2_005",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{3x^2+x}{2x^2-5} = \\;?",
+    "answer_latex": "\\frac{3}{2}",
+    "choices_latex": ["\\frac{3}{2}", "1", "\\infty", "0"],
+    "hint_latex": "\\frac{\\infty}{\\infty} \\Rightarrow \\text{termes dominants}"
+  },
+  {
+    "id": "lim_l2_006",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{\\sin x}{x} = \\;?",
+    "answer_latex": "1",
+    "choices_latex": ["1", "0", "\\infty", "\\text{n'existe pas}"],
+    "hint_latex": "\\text{Limite trigo fondamentale}"
+  },
+  {
+    "id": "lim_l2_007",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{1-\\cos x}{x} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "1", "\\frac{1}{2}", "\\text{n'existe pas}"],
+    "hint_latex": "\\lim_{x\\to 0}\\frac{1-\\cos x}{x} = 0"
+  },
+  {
+    "id": "lim_l2_008",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{\\tan x}{x} = \\;?",
+    "answer_latex": "1",
+    "choices_latex": ["1", "0", "\\infty", "\\text{n'existe pas}"],
+    "hint_latex": "\\text{Limite trigo fondamentale}"
+  },
+  {
+    "id": "lim_l2_009",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{1}{x} = \\;?",
+    "answer_latex": "\\text{n'existe pas}",
+    "choices_latex": ["\\text{n'existe pas}", "+\\infty", "-\\infty", "0"],
+    "hint_latex": "\\text{Gauche } -\\infty, \\;\\text{droite } +\\infty"
+  },
+  {
+    "id": "lim_l3_001",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{\\ln x}{x} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "\\infty", "1", "\\text{n'existe pas}"],
+    "hint_latex": "\\ln x \\ll x"
+  },
+  {
+    "id": "lim_l3_002",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{x^{100}}{e^x} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "\\infty", "1", "\\text{n'existe pas}"],
+    "hint_latex": "x^n \\ll e^x"
+  },
+  {
+    "id": "lim_l3_003",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\left(1 + \\frac{1}{x}\\right)^x = \\;?",
+    "answer_latex": "e",
+    "choices_latex": ["e", "1", "\\infty", "0"],
+    "hint_latex": "\\text{Définition de } e"
+  },
+  {
+    "id": "lim_l3_004",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\text{L'Hôpital s'applique aux formes ?}",
+    "answer_latex": "\\frac{0}{0}\\ \\text{ou}\\ \\frac{\\infty}{\\infty}",
+    "choices_latex": ["\\frac{0}{0}\\ \\text{ou}\\ \\frac{\\infty}{\\infty}", "\\infty - \\infty", "0 \\cdot \\infty", "\\text{toutes les formes}"],
+    "hint_latex": "\\text{Seulement } \\frac{0}{0} \\;\\text{ou}\\; \\frac{\\infty}{\\infty}"
+  },
+  {
+    "id": "lim_l3_005",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\text{Hiérarchie de croissance ?}",
+    "answer_latex": "\\ln x \\ll x^n \\ll e^x",
+    "choices_latex": ["\\ln x \\ll x^n \\ll e^x", "e^x \\ll x^n \\ll \\ln x", "x^n \\ll \\ln x \\ll e^x", "\\ln x \\ll e^x \\ll x^n"],
+    "hint_latex": "\\ln x \\ll x^n \\ll e^x"
+  },
+  {
+    "id": "lim_l3_006",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty} e^{-x} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "\\infty", "1", "\\text{n'existe pas}"],
+    "hint_latex": "\\text{Asymptote horizontale } y = 0"
   }
   ]
 }

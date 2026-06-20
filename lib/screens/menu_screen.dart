@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'algebra_config_screen.dart';
 import 'config_screen.dart';
 import 'debug_screen.dart';
+import 'limites_config_screen.dart';
 
 /// Home menu that lets the player choose between the two game modes:
 /// the existing arithmetic "Calcul Mental" and the new "Algèbre & Trigo".
@@ -51,6 +52,16 @@ class MenuScreen extends StatelessWidget {
                 color: Colors.deepPurple,
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (_) => const AlgebraConfigScreen()),
+                ),
+              ),
+              const SizedBox(height: 16),
+              _ModeCard(
+                icon: Icons.trending_down,
+                title: 'Limites',
+                subtitle: 'Formes indéterminées, techniques et résultats',
+                color: Colors.teal,
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const LimitesConfigScreen()),
                 ),
               ),
               const Spacer(flex: 2),

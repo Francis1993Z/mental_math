@@ -57,6 +57,7 @@ class _AlgebraGameScreenState extends State<AlgebraGameScreen> {
     _pool = await _loader.load(
       categories: widget.config.categories,
       difficulty: widget.config.difficulty,
+      types: widget.config.types,
     );
 
     if (!mounted) return;
@@ -122,6 +123,7 @@ class _AlgebraGameScreenState extends State<AlgebraGameScreen> {
       promptLatex: picked.promptLatex,
       answerLatex: picked.answerLatex,
       choicesLatex: picked.choicesLatex,
+      hintLatex: picked.hintLatex,
     );
     _currentChoices = List<String>.from(picked.choicesLatex)..shuffle();
     _selectedIndex = null;
@@ -154,7 +156,9 @@ class _AlgebraGameScreenState extends State<AlgebraGameScreen> {
         _waitingForContinue = pause;
       });
       if (!pause) {
-        Future.delayed(const Duration(milliseconds: 1100), () {
+        // Give more time to read when an enriched hint is displayed.
+        final delayMs = _current!.hintLatex != null ? 2200 : 1100;
+        Future.delayed(Duration(milliseconds: delayMs), () {
           if (mounted) _proceedToNext();
         });
       }
@@ -313,6 +317,29 @@ class _AlgebraGameScreenState extends State<AlgebraGameScreen> {
             ),
             const SizedBox(height: 8),
             MathText(_current!.answerLatex, fontSize: 24, color: Colors.red),
+          ],
+          if (_showingFeedback && _current!.hintLatex != null) ...[
+            const SizedBox(height: 12),
+            const Divider(),
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.lightbulb_outline,
+                    size: 18, color: Colors.blue.shade700),
+                const SizedBox(width: 6),
+                Text(
+                  'Astuce',
+                  style: TextStyle(
+                    color: Colors.blue.shade700,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            MathText(_current!.hintLatex!,
+                fontSize: 20, color: Colors.blue.shade700),
           ],
         ],
       ),

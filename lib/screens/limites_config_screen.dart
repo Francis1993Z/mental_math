@@ -5,24 +5,48 @@ import '../models/game_config.dart';
 import '../services/question_loader.dart';
 import 'algebra_game_screen.dart';
 
-/// Configuration screen for the Algebre & Trigo mode.
-///
-/// Mirrors the arithmetic ConfigScreen layout (Cards + section titles) so the
-/// look & feel stays consistent.
-class AlgebraConfigScreen extends StatefulWidget {
-  const AlgebraConfigScreen({super.key});
+/// Question-type filter for the Limites mode.
+enum LimitesTypeFilter { resultat, methode, both }
 
-  @override
-  State<AlgebraConfigScreen> createState() => _AlgebraConfigScreenState();
+extension on LimitesTypeFilter {
+  String get label {
+    switch (this) {
+      case LimitesTypeFilter.resultat:
+        return 'Résultat';
+      case LimitesTypeFilter.methode:
+        return 'Méthode';
+      case LimitesTypeFilter.both:
+        return 'Les deux';
+    }
+  }
+
+  /// Maps to the config type filter (null = all types).
+  List<AlgebraQuestionType>? get types {
+    switch (this) {
+      case LimitesTypeFilter.resultat:
+        return [AlgebraQuestionType.qcmResultat];
+      case LimitesTypeFilter.methode:
+        return [AlgebraQuestionType.qcmMethode];
+      case LimitesTypeFilter.both:
+        return null;
+    }
+  }
 }
 
-class _AlgebraConfigScreenState extends State<AlgebraConfigScreen> {
+/// Configuration screen for the Limites mode. Reuses [AlgebraGameScreen] for
+/// gameplay; here we only choose difficulty, question type, mode and options.
+class LimitesConfigScreen extends StatefulWidget {
+  const LimitesConfigScreen({super.key});
+
+  @override
+  State<LimitesConfigScreen> createState() => _LimitesConfigScreenState();
+}
+
+class _LimitesConfigScreenState extends State<LimitesConfigScreen> {
   final QuestionLoader _loader = QuestionLoader();
 
-  final Map<AlgebraCategory, bool> _categories = {
-    for (final c in algebraTrigoCategories) c: true,
-  };
   int _difficulty = 1;
+  LimitesTypeFilter _typeFilter = LimitesTypeFilter.both;
   GameMode _gameMode = GameMode.fixedQuestions;
   int _duration = 60;
   int _questionCount = 10;
@@ -36,7 +60,7 @@ class _AlgebraConfigScreenState extends State<AlgebraConfigScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Algèbre & Trigo'),
+        title: const Text('Limites'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SingleChildScrollView(
@@ -49,9 +73,9 @@ class _AlgebraConfigScreenState extends State<AlgebraConfigScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            _buildSectionTitle('Catégories'),
+            _buildSectionTitle('Type de question'),
             const SizedBox(height: 8),
-            _buildCategoriesSection(),
+            _buildTypeSection(),
             const SizedBox(height: 24),
             _buildSectionTitle('Niveau de difficulté'),
             const SizedBox(height: 8),
@@ -81,22 +105,35 @@ class _AlgebraConfigScreenState extends State<AlgebraConfigScreen> {
     );
   }
 
-  Widget _buildCategoriesSection() {
+  Widget _buildTypeSection() {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Wrap(
-          spacing: 8,
-          runSpacing: 4,
-          children: algebraTrigoCategories.map((cat) {
-            return FilterChip(
-              label: Text(cat.label),
-              selected: _categories[cat]!,
-              onSelected: (selected) {
-                setState(() => _categories[cat] = selected);
-              },
-            );
-          }).toList(),
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Wrap(
+              spacing: 8,
+              children: LimitesTypeFilter.values.map((t) {
+                return ChoiceChip(
+                  label: Text(t.label),
+                  selected: _typeFilter == t,
+                  onSelected: (selected) {
+                    if (selected) setState(() => _typeFilter = t);
+                  },
+                );
+              }).toList(),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              _typeFilter == LimitesTypeFilter.methode
+                  ? 'Identifier la forme indéterminée ou la technique.'
+                  : _typeFilter == LimitesTypeFilter.resultat
+                      ? 'Choisir la valeur de la limite.'
+                      : 'Mélange de résultats et de techniques.',
+              style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
+            ),
+          ],
         ),
       ),
     );
@@ -188,7 +225,7 @@ class _AlgebraConfigScreenState extends State<AlgebraConfigScreen> {
           SwitchListTile(
             title: const Text('Afficher la réponse immédiatement'),
             subtitle: const Text(
-              'Voir si la réponse est correcte après chaque question',
+              'Voir la bonne réponse et l\'astuce après chaque question',
             ),
             value: _showImmediateFeedback,
             onChanged: (value) => setState(() {
@@ -225,32 +262,28 @@ class _AlgebraConfigScreenState extends State<AlgebraConfigScreen> {
   }
 
   Future<void> _startGame() async {
-    final selected = _categories.entries
-        .where((e) => e.value)
-        .map((e) => e.key)
-        .toList();
+    final types = _typeFilter.types;
 
-    if (selected.isEmpty) {
-      _showSnack('Sélectionnez au moins une catégorie');
-      return;
-    }
-
-    // Validate that questions actually exist for this combination before
-    // launching, so the player never lands on an empty session.
     final available = await _loader.load(
-      categories: selected,
+      categories: limitesCategories,
       difficulty: _difficulty,
+      types: types,
     );
     if (!mounted) return;
     if (available.isEmpty) {
-      _showSnack(
-        'Aucune question pour ce niveau et ces catégories. Essayez une autre combinaison.',
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Aucune question pour ce niveau et ce type. Essayez une autre combinaison.',
+          ),
+        ),
       );
       return;
     }
 
     final config = AlgebraConfig(
-      categories: selected,
+      categories: limitesCategories,
+      types: types,
       difficulty: _difficulty,
       mode: _gameMode,
       duration: _gameMode == GameMode.timed ? _duration : null,
@@ -265,10 +298,5 @@ class _AlgebraConfigScreenState extends State<AlgebraConfigScreen> {
         builder: (context) => AlgebraGameScreen(config: config),
       ),
     );
-  }
-
-  void _showSnack(String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
   }
 }

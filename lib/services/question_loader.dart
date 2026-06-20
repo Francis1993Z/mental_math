@@ -45,15 +45,19 @@ class QuestionLoader {
     return parsed;
   }
 
-  /// Loads questions filtered by selected categories and difficulty.
+  /// Loads questions filtered by selected categories, difficulty and,
+  /// optionally, question types. When [types] is null/empty, all types match.
   Future<List<AlgebraQuestion>> load({
     required List<AlgebraCategory> categories,
     required int difficulty,
+    List<AlgebraQuestionType>? types,
   }) async {
     final all = await loadAll();
     return all
         .where((q) =>
-            categories.contains(q.category) && q.difficulty == difficulty)
+            categories.contains(q.category) &&
+            q.difficulty == difficulty &&
+            (types == null || types.isEmpty || types.contains(q.type)))
         .toList();
   }
 

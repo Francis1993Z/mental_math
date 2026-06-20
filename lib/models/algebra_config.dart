@@ -7,6 +7,11 @@ import 'algebra_question.dart';
 /// behaviour stays consistent across the app.
 class AlgebraConfig {
   final List<AlgebraCategory> categories;
+
+  /// Optional question-type filter. When null, all types are allowed.
+  /// Used by the Limites mode to let the player pick "résultat" or "méthode".
+  final List<AlgebraQuestionType>? types;
+
   final int difficulty; // 1..3
   final GameMode mode;
   final int? duration; // seconds, for timed mode
@@ -20,6 +25,7 @@ class AlgebraConfig {
 
   AlgebraConfig({
     required this.categories,
+    this.types,
     required this.difficulty,
     required this.mode,
     this.duration,

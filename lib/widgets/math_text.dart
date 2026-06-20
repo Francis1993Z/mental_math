@@ -30,25 +30,18 @@ class MathText extends StatelessWidget {
     final effectiveColor =
         color ?? DefaultTextStyle.of(context).style.color ?? Colors.black;
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return FittedBox(
-          fit: BoxFit.scaleDown,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: constraints.maxWidth.isFinite
-                  ? constraints.maxWidth
-                  : double.infinity,
-            ),
-            child: Math.tex(
-              latex,
-              textStyle: TextStyle(fontSize: fontSize, color: effectiveColor),
-              textScaleFactor: 1.0,
-              onErrorFallback: (err) => _fallback(effectiveColor),
-            ),
-          ),
-        );
-      },
+    // Render the formula at its natural size and let FittedBox shrink it to
+    // fit the available width/height. Constraining Math.tex directly makes it
+    // overflow (it never wraps), which is why the formula was clipping.
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      alignment: Alignment.center,
+      child: Math.tex(
+        latex,
+        textStyle: TextStyle(fontSize: fontSize, color: effectiveColor),
+        textScaleFactor: 1.0,
+        onErrorFallback: (err) => _fallback(effectiveColor),
+      ),
     );
   }
 
