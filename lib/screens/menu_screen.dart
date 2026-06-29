@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'algebra_config_screen.dart';
 import 'config_screen.dart';
 import 'debug_screen.dart';
+import 'ensembles_config_screen.dart';
+import 'function_analysis_config_screen.dart';
+import 'integrales_config_screen.dart';
 import 'limites_config_screen.dart';
 
-/// Home menu that lets the player choose between the two game modes:
-/// the existing arithmetic "Calcul Mental" and the new "Algèbre & Trigo".
+/// Home menu that lets the player choose between the available game modes.
+///
+/// The content is vertically centered when it fits, but becomes scrollable on
+/// short screens so every mode card remains reachable.
 class MenuScreen extends StatelessWidget {
   const MenuScreen({super.key});
 
@@ -20,53 +25,101 @@ class MenuScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Spacer(),
-              Text(
-                'Choisissez un mode',
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineSmall
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 32),
-              _ModeCard(
-                icon: Icons.calculate,
-                title: 'Calcul Mental',
-                subtitle: 'Addition, soustraction, multiplication, division',
-                color: Colors.blue,
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const ConfigScreen()),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(16),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Choisissez un mode',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 20),
+                    _ModeCard(
+                      icon: Icons.calculate,
+                      title: 'Calcul Mental',
+                      subtitle:
+                          'Addition, soustraction, multiplication, division',
+                      color: Colors.blue,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const ConfigScreen()),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    _ModeCard(
+                      icon: Icons.functions,
+                      title: 'Algèbre & Trigo',
+                      subtitle: 'Reconnaissance de formules et identités',
+                      color: Colors.deepPurple,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const AlgebraConfigScreen(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    _ModeCard(
+                      icon: Icons.trending_down,
+                      title: 'Limites',
+                      subtitle: 'Formes indéterminées, techniques et résultats',
+                      color: Colors.teal,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const LimitesConfigScreen(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    _ModeCard(
+                      icon: Icons.integration_instructions,
+                      title: 'Intégrales',
+                      subtitle: 'Primitives et techniques d\'intégration',
+                      color: Colors.orange,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const IntegralesConfigScreen(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    _ModeCard(
+                      icon: Icons.area_chart,
+                      title: 'Analyse de fonction',
+                      subtitle:
+                          'Tableau de variation, concavité, allure et extrema',
+                      color: Colors.indigo,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const FunctionAnalysisConfigScreen(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    _ModeCard(
+                      icon: Icons.numbers,
+                      title: 'Ensembles de nombres',
+                      subtitle: 'ℕ, ℤ, ℚ, irrationnels, ℝ, ℂ : classez le nombre',
+                      color: Colors.pink,
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const EnsemblesConfigScreen(),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(height: 16),
-              _ModeCard(
-                icon: Icons.functions,
-                title: 'Algèbre & Trigo',
-                subtitle: 'Reconnaissance de formules et identités',
-                color: Colors.deepPurple,
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const AlgebraConfigScreen()),
-                ),
-              ),
-              const SizedBox(height: 16),
-              _ModeCard(
-                icon: Icons.trending_down,
-                title: 'Limites',
-                subtitle: 'Formes indéterminées, techniques et résultats',
-                color: Colors.teal,
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const LimitesConfigScreen()),
-                ),
-              ),
-              const Spacer(flex: 2),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );
@@ -102,13 +155,13 @@ class _ModeCard extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(16),
           child: Row(
             children: [
               CircleAvatar(
-                radius: 28,
+                radius: 24,
                 backgroundColor: color.withValues(alpha: 0.15),
-                child: Icon(icon, size: 30, color: color),
+                child: Icon(icon, size: 26, color: color),
               ),
               const SizedBox(width: 16),
               Expanded(

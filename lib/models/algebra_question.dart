@@ -1,5 +1,14 @@
 /// Categories available across the LaTeX-based game modes.
-enum AlgebraCategory { trigo, algebra, log, exp, derivative, limites }
+enum AlgebraCategory {
+  trigo,
+  algebra,
+  log,
+  exp,
+  derivative,
+  limites,
+  integrales,
+  ensembles,
+}
 
 /// Categories that belong to the "Algebre & Trigo" mode.
 const List<AlgebraCategory> algebraTrigoCategories = [
@@ -12,6 +21,12 @@ const List<AlgebraCategory> algebraTrigoCategories = [
 
 /// Categories that belong to the "Limites" mode.
 const List<AlgebraCategory> limitesCategories = [AlgebraCategory.limites];
+
+/// Categories that belong to the "Intégrales" mode.
+const List<AlgebraCategory> integralesCategories = [AlgebraCategory.integrales];
+
+/// Categories that belong to the "Ensembles de nombres" mode.
+const List<AlgebraCategory> ensemblesCategories = [AlgebraCategory.ensembles];
 
 extension AlgebraCategoryX on AlgebraCategory {
   /// The key used in questions.json.
@@ -29,6 +44,10 @@ extension AlgebraCategoryX on AlgebraCategory {
         return 'derivative';
       case AlgebraCategory.limites:
         return 'limites';
+      case AlgebraCategory.integrales:
+        return 'integrales';
+      case AlgebraCategory.ensembles:
+        return 'ensembles';
     }
   }
 
@@ -47,6 +66,10 @@ extension AlgebraCategoryX on AlgebraCategory {
         return 'Dérivées de base';
       case AlgebraCategory.limites:
         return 'Limites';
+      case AlgebraCategory.integrales:
+        return 'Intégrales';
+      case AlgebraCategory.ensembles:
+        return 'Ensembles de nombres';
     }
   }
 

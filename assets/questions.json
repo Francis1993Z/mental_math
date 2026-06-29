@@ -620,6 +620,1006 @@
     "answer_latex": "0",
     "choices_latex": ["0", "\\infty", "1", "\\text{n'existe pas}"],
     "hint_latex": "\\text{Asymptote horizontale } y = 0"
+  },
+  {
+    "id": "lim_l1_006",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 1}\\left(3x - 2\\right) = \\;?",
+    "answer_latex": "1",
+    "choices_latex": ["1", "3", "-2", "\\text{n'existe pas}"],
+    "hint_latex": "\\text{Substitution directe}"
+  },
+  {
+    "id": "lim_l1_007",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\cos(x) = \\;?",
+    "answer_latex": "1",
+    "choices_latex": ["1", "0", "-1", "\\text{n'existe pas}"],
+    "hint_latex": "\\cos(0) = 1"
+  },
+  {
+    "id": "lim_l1_008",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 4}\\sqrt{x} = \\;?",
+    "answer_latex": "2",
+    "choices_latex": ["2", "4", "16", "\\text{n'existe pas}"],
+    "hint_latex": "\\sqrt{4} = 2"
+  },
+  {
+    "id": "lim_l1_009",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0^-}\\frac{1}{x} = \\;?",
+    "answer_latex": "-\\infty",
+    "choices_latex": ["-\\infty", "+\\infty", "0", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{1}{0^-} \\Rightarrow -\\infty"
+  },
+  {
+    "id": "lim_l1_010",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_methode",
+    "prompt_latex": "\\frac{\\infty}{\\infty} \\;\\text{est une forme ?}",
+    "answer_latex": "\\text{indéterminée}",
+    "choices_latex": ["\\text{indéterminée}", "\\text{déterminée}", "0", "+\\infty"],
+    "hint_latex": "\\frac{\\infty}{\\infty} \\text{ est indéterminée}"
+  },
+  {
+    "id": "lim_l1_011",
+    "category": "limites",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to -\\infty}\\frac{7}{x} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "7", "-\\infty", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{7}{-\\infty} \\Rightarrow 0"
+  },
+  {
+    "id": "lim_l2_010",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 2}\\frac{x^2-4}{x-2} = \\;?",
+    "answer_latex": "4",
+    "choices_latex": ["4", "0", "2", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{0}{0} \\Rightarrow (x-2)(x+2)/(x-2)"
+  },
+  {
+    "id": "lim_l2_011",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to -3}\\frac{x^2-9}{x+3} = \\;?",
+    "answer_latex": "-6",
+    "choices_latex": ["-6", "6", "0", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{0}{0} \\Rightarrow (x-3)(x+3)/(x+3)"
+  },
+  {
+    "id": "lim_l2_012",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{5x^3+2}{2x^3-x} = \\;?",
+    "answer_latex": "\\frac{5}{2}",
+    "choices_latex": ["\\frac{5}{2}", "0", "\\infty", "1"],
+    "hint_latex": "\\frac{\\infty}{\\infty} \\Rightarrow \\text{termes dominants}"
+  },
+  {
+    "id": "lim_l2_013",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{2x+1}{x^2+3} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "2", "\\infty", "\\frac{1}{3}"],
+    "hint_latex": "\\text{Degré bas} / \\text{degré haut} \\Rightarrow 0"
+  },
+  {
+    "id": "lim_l2_014",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{x^2+1}{x+1} = \\;?",
+    "answer_latex": "+\\infty",
+    "choices_latex": ["+\\infty", "0", "1", "\\frac{1}{2}"],
+    "hint_latex": "\\text{Degré haut au numérateur} \\Rightarrow +\\infty"
+  },
+  {
+    "id": "lim_l2_015",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{\\sin(3x)}{x} = \\;?",
+    "answer_latex": "3",
+    "choices_latex": ["3", "1", "0", "\\frac{1}{3}"],
+    "hint_latex": "\\frac{\\sin(3x)}{x} = 3\\cdot\\frac{\\sin(3x)}{3x}"
+  },
+  {
+    "id": "lim_l2_016",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{\\sin(2x)}{3x} = \\;?",
+    "answer_latex": "\\frac{2}{3}",
+    "choices_latex": ["\\frac{2}{3}", "\\frac{3}{2}", "1", "0"],
+    "hint_latex": "\\frac{2}{3}\\cdot\\frac{\\sin(2x)}{2x} \\to \\frac{2}{3}"
+  },
+  {
+    "id": "lim_l2_017",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{\\sqrt{x+4}-2}{x} = \\;?",
+    "answer_latex": "\\frac{1}{4}",
+    "choices_latex": ["\\frac{1}{4}", "\\frac{1}{2}", "0", "\\text{n'existe pas}"],
+    "hint_latex": "\\text{Multiplier par le conjugué}"
+  },
+  {
+    "id": "lim_l2_018",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_methode",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{x^2+1}{x+1} \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{termes dominants}",
+    "choices_latex": ["\\text{termes dominants}", "\\text{factorisation}", "\\text{conjugué}", "\\text{substitution}"],
+    "hint_latex": "x\\to\\infty \\Rightarrow \\text{comparer les degrés}"
+  },
+  {
+    "id": "lim_l2_019",
+    "category": "limites",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 2^+}\\frac{1}{x-2} = \\;?",
+    "answer_latex": "+\\infty",
+    "choices_latex": ["+\\infty", "-\\infty", "0", "\\text{n'existe pas}"],
+    "hint_latex": "x-2 \\to 0^+ \\Rightarrow +\\infty"
+  },
+  {
+    "id": "lim_l3_007",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{e^x-1}{x} = \\;?",
+    "answer_latex": "1",
+    "choices_latex": ["1", "0", "e", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{0}{0} \\Rightarrow \\text{L'Hôpital ou limite connue}"
+  },
+  {
+    "id": "lim_l3_008",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\frac{\\ln x}{x^2} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "\\infty", "1", "\\text{n'existe pas}"],
+    "hint_latex": "\\ln x \\ll x^2"
+  },
+  {
+    "id": "lim_l3_009",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to 0^+} x\\ln x = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "-\\infty", "1", "\\text{n'existe pas}"],
+    "hint_latex": "0 \\cdot (-\\infty) \\Rightarrow \\text{réécrire en } \\frac{\\ln x}{1/x}"
+  },
+  {
+    "id": "lim_l3_010",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty} x\\,e^{-x} = \\;?",
+    "answer_latex": "0",
+    "choices_latex": ["0", "\\infty", "1", "\\text{n'existe pas}"],
+    "hint_latex": "\\frac{x}{e^x},\\; x \\ll e^x"
+  },
+  {
+    "id": "lim_l3_011",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\lim_{x\\to \\infty}\\left(1 + \\frac{2}{x}\\right)^x = \\;?",
+    "answer_latex": "e^2",
+    "choices_latex": ["e^2", "e", "1", "\\infty"],
+    "hint_latex": "\\left(1+\\frac{k}{x}\\right)^x \\to e^k"
+  },
+  {
+    "id": "lim_l3_012",
+    "category": "limites",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\lim_{x\\to 0}\\frac{e^x-1}{x} \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{L'Hôpital}",
+    "choices_latex": ["\\text{L'Hôpital}", "\\text{factorisation}", "\\text{conjugué}", "\\text{termes dominants}"],
+    "hint_latex": "\\frac{0}{0} \\Rightarrow \\text{dériver haut et bas}"
+  },
+  {
+    "id": "int_l1_001",
+    "category": "integrales",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int x^2 \\, dx = \\;?",
+    "answer_latex": "\\frac{x^3}{3} + C",
+    "choices_latex": ["\\frac{x^3}{3} + C", "2x + C", "x^3 + C", "3x^2 + C"],
+    "hint_latex": "\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C"
+  },
+  {
+    "id": "int_l1_002",
+    "category": "integrales",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int e^x \\, dx = \\;?",
+    "answer_latex": "e^x + C",
+    "choices_latex": ["e^x + C", "\\frac{e^x}{x} + C", "x e^x + C", "\\ln x + C"],
+    "hint_latex": "\\int e^x\\,dx = e^x + C"
+  },
+  {
+    "id": "int_l1_003",
+    "category": "integrales",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\cos x \\, dx = \\;?",
+    "answer_latex": "\\sin x + C",
+    "choices_latex": ["\\sin x + C", "-\\sin x + C", "\\cos x + C", "-\\cos x + C"],
+    "hint_latex": "\\int \\cos x\\,dx = \\sin x + C"
+  },
+  {
+    "id": "int_l1_004",
+    "category": "integrales",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\sin x \\, dx = \\;?",
+    "answer_latex": "-\\cos x + C",
+    "choices_latex": ["-\\cos x + C", "\\cos x + C", "\\sin x + C", "-\\sin x + C"],
+    "hint_latex": "\\int \\sin x\\,dx = -\\cos x + C"
+  },
+  {
+    "id": "int_l1_005",
+    "category": "integrales",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\frac{1}{x} \\, dx = \\;?",
+    "answer_latex": "\\ln|x| + C",
+    "choices_latex": ["\\ln|x| + C", "-\\frac{1}{x^2} + C", "\\frac{1}{x^2} + C", "1 + C"],
+    "hint_latex": "\\int \\frac{1}{x}\\,dx = \\ln|x| + C"
+  },
+  {
+    "id": "int_l1_006",
+    "category": "integrales",
+    "difficulty": 1,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\sec^2 x \\, dx = \\;?",
+    "answer_latex": "\\tan x + C",
+    "choices_latex": ["\\tan x + C", "\\sec x + C", "-\\cot x + C", "\\sec x \\tan x + C"],
+    "hint_latex": "\\frac{d}{dx}\\tan x = \\sec^2 x"
+  },
+  {
+    "id": "int_l1_007",
+    "category": "integrales",
+    "difficulty": 1,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int x^7 \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Règle de puissance}",
+    "choices_latex": ["\\text{Règle de puissance}", "\\text{Intégration par parties}", "\\text{Substitution}", "\\text{Fractions partielles}"],
+    "hint_latex": "\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C"
+  },
+  {
+    "id": "int_l1_008",
+    "category": "integrales",
+    "difficulty": 1,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int (3x^2 + 2x) \\, dx \\;\\text{: quelle propriété ?}",
+    "answer_latex": "\\text{Linéarité}",
+    "choices_latex": ["\\text{Linéarité}", "\\text{Intégration par parties}", "\\text{Substitution}", "\\text{Fractions partielles}"],
+    "hint_latex": "\\int (af + bg) = a\\int f + b\\int g"
+  },
+  {
+    "id": "int_l2_001",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int 2x \\cos(x^2) \\, dx = \\;?",
+    "answer_latex": "\\sin(x^2) + C",
+    "choices_latex": ["\\sin(x^2) + C", "\\cos(x^2) + C", "2\\sin(x^2) + C", "-\\sin(x^2) + C"],
+    "hint_latex": "u = x^2,\\; du = 2x\\,dx"
+  },
+  {
+    "id": "int_l2_002",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int x\\,e^{x^2} \\, dx = \\;?",
+    "answer_latex": "\\frac{1}{2} e^{x^2} + C",
+    "choices_latex": ["\\frac{1}{2} e^{x^2} + C", "e^{x^2} + C", "2 e^{x^2} + C", "\\frac{1}{2} e^{x} + C"],
+    "hint_latex": "u = x^2,\\; du = 2x\\,dx"
+  },
+  {
+    "id": "int_l2_003",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\frac{1}{2x+1} \\, dx = \\;?",
+    "answer_latex": "\\frac{1}{2}\\ln|2x+1| + C",
+    "choices_latex": ["\\frac{1}{2}\\ln|2x+1| + C", "\\ln|2x+1| + C", "\\frac{1}{2x+1} + C", "2\\ln|2x+1| + C"],
+    "hint_latex": "u = 2x+1,\\; du = 2\\,dx"
+  },
+  {
+    "id": "int_l2_004",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int x\\,e^{x} \\, dx = \\;?",
+    "answer_latex": "(x-1)e^x + C",
+    "choices_latex": ["(x-1)e^x + C", "(x+1)e^x + C", "x e^x + C", "\\frac{x^2}{2}e^x + C"],
+    "hint_latex": "\\text{Parties : } u=x,\\; dv=e^x\\,dx"
+  },
+  {
+    "id": "int_l2_005",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\ln x \\, dx = \\;?",
+    "answer_latex": "x\\ln x - x + C",
+    "choices_latex": ["x\\ln x - x + C", "\\frac{1}{x} + C", "x\\ln x + C", "\\ln x - x + C"],
+    "hint_latex": "\\text{Parties : } u=\\ln x,\\; dv=dx"
+  },
+  {
+    "id": "int_l2_006",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\sin^2 x \\, dx = \\;?",
+    "answer_latex": "\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C",
+    "choices_latex": ["\\frac{x}{2} - \\frac{\\sin(2x)}{4} + C", "\\frac{x}{2} + \\frac{\\sin(2x)}{4} + C", "-\\frac{\\cos(2x)}{2} + C", "\\frac{\\sin^3 x}{3} + C"],
+    "hint_latex": "\\sin^2 x = \\frac{1-\\cos(2x)}{2}"
+  },
+  {
+    "id": "int_l2_007",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int 2x\\sqrt{x^2+1} \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Substitution}",
+    "choices_latex": ["\\text{Substitution}", "\\text{Intégration par parties}", "\\text{Fractions partielles}", "\\text{Substitution trigonométrique}"],
+    "hint_latex": "u = x^2 + 1,\\; du = 2x\\,dx"
+  },
+  {
+    "id": "int_l2_008",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int x \\sin x \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Intégration par parties}",
+    "choices_latex": ["\\text{Intégration par parties}", "\\text{Substitution}", "\\text{Fractions partielles}", "\\text{Identités trigonométriques}"],
+    "hint_latex": "u=x,\\; dv=\\sin x\\,dx"
+  },
+  {
+    "id": "int_l2_009",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\frac{1}{(x-1)(x+2)} \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Fractions partielles}",
+    "choices_latex": ["\\text{Fractions partielles}", "\\text{Intégration par parties}", "\\text{Substitution trigonométrique}", "\\text{Règle de puissance}"],
+    "hint_latex": "\\frac{1}{(x-1)(x+2)} = \\frac{A}{x-1} + \\frac{B}{x+2}"
+  },
+  {
+    "id": "int_l2_010",
+    "category": "integrales",
+    "difficulty": 2,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\tan x \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Substitution}",
+    "choices_latex": ["\\text{Substitution}", "\\text{Intégration par parties}", "\\text{Fractions partielles}", "\\text{Substitution trigonométrique}"],
+    "hint_latex": "\\tan x = \\frac{\\sin x}{\\cos x},\\; u=\\cos x"
+  },
+  {
+    "id": "int_l3_001",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int x^2 e^x \\, dx = \\;?",
+    "answer_latex": "(x^2 - 2x + 2)e^x + C",
+    "choices_latex": ["(x^2 - 2x + 2)e^x + C", "(x^2 + 2x + 2)e^x + C", "x^2 e^x + C", "\\frac{x^3}{3}e^x + C"],
+    "hint_latex": "\\text{Parties deux fois}"
+  },
+  {
+    "id": "int_l3_002",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int e^{x}\\sin x \\, dx = \\;?",
+    "answer_latex": "\\frac{e^x(\\sin x - \\cos x)}{2} + C",
+    "choices_latex": ["\\frac{e^x(\\sin x - \\cos x)}{2} + C", "\\frac{e^x(\\sin x + \\cos x)}{2} + C", "e^x \\sin x + C", "-e^x\\cos x + C"],
+    "hint_latex": "\\text{Parties deux fois, puis isoler } I"
+  },
+  {
+    "id": "int_l3_003",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\frac{1}{x^2 - 1} \\, dx = \\;?",
+    "answer_latex": "\\frac{1}{2}\\ln\\left|\\frac{x-1}{x+1}\\right| + C",
+    "choices_latex": ["\\frac{1}{2}\\ln\\left|\\frac{x-1}{x+1}\\right| + C", "\\ln|x^2-1| + C", "\\arctan x + C", "\\frac{1}{2}\\ln\\left|\\frac{x+1}{x-1}\\right| + C"],
+    "hint_latex": "\\frac{1}{x^2-1} = \\frac{1}{2}\\left(\\frac{1}{x-1} - \\frac{1}{x+1}\\right)"
+  },
+  {
+    "id": "int_l3_004",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int x \\arctan x \\, dx = \\;?",
+    "answer_latex": "\\frac{x^2+1}{2}\\arctan x - \\frac{x}{2} + C",
+    "choices_latex": ["\\frac{x^2+1}{2}\\arctan x - \\frac{x}{2} + C", "\\frac{x^2}{2}\\arctan x + C", "\\frac{1}{2}\\arctan(x^2) + C", "x\\arctan x - \\frac{1}{2}\\ln(1+x^2) + C"],
+    "hint_latex": "\\text{Parties : } u=\\arctan x,\\; dv=x\\,dx"
+  },
+  {
+    "id": "int_l3_005",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_resultat",
+    "prompt_latex": "\\int \\sec^3 x \\, dx = \\;?",
+    "answer_latex": "\\frac{1}{2}\\left(\\sec x \\tan x + \\ln|\\sec x + \\tan x|\\right) + C",
+    "choices_latex": ["\\frac{1}{2}\\left(\\sec x \\tan x + \\ln|\\sec x + \\tan x|\\right) + C", "\\frac{\\sec^4 x}{4} + C", "\\sec x \\tan x + C", "\\ln|\\sec x + \\tan x| + C"],
+    "hint_latex": "\\text{Parties avec } \\sec x \\text{ et } \\sec^2 x"
+  },
+  {
+    "id": "int_l3_006",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int x e^x \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Intégration par parties}",
+    "choices_latex": ["\\text{Intégration par parties}", "\\text{Substitution}", "\\text{Fractions partielles}", "\\text{Identités trigonométriques}"],
+    "hint_latex": "u=x,\\; dv=e^x\\,dx"
+  },
+  {
+    "id": "int_l3_007",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\frac{x+3}{(x-1)(x+5)} \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Fractions partielles}",
+    "choices_latex": ["\\text{Fractions partielles}", "\\text{Intégration par parties}", "\\text{Substitution trigonométrique}", "\\text{Règle de puissance}"],
+    "hint_latex": "\\frac{x+3}{(x-1)(x+5)} = \\frac{A}{x-1} + \\frac{B}{x+5}"
+  },
+  {
+    "id": "int_l3_008",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\csc^5 x \\cot^3 x \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Identités trigonométriques}",
+    "choices_latex": ["\\text{Identités trigonométriques}", "\\text{Fractions partielles}", "\\text{Substitution trigonométrique}", "\\text{Règle de puissance}"],
+    "hint_latex": "\\cot^2 x = \\csc^2 x - 1,\\; \\text{puis } u=\\csc x"
+  },
+  {
+    "id": "int_l3_009",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int e^{5x}\\sin x \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Intégration par parties}",
+    "choices_latex": ["\\text{Intégration par parties}", "\\text{Substitution}", "\\text{Fractions partielles}", "\\text{Identités trigonométriques}"],
+    "hint_latex": "\\text{Parties deux fois, puis isoler } I"
+  },
+  {
+    "id": "int_l3_010",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\frac{x^3}{\\sqrt{4 - 2x^2}} \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Substitution}",
+    "choices_latex": ["\\text{Substitution}", "\\text{Intégration par parties}", "\\text{Fractions partielles}", "\\text{Identités trigonométriques}"],
+    "hint_latex": "u = 4 - 2x^2"
+  },
+  {
+    "id": "int_l3_011",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int x^3 \\arctan(x^2) \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Intégration par parties}",
+    "choices_latex": ["\\text{Intégration par parties}", "\\text{Fractions partielles}", "\\text{Substitution trigonométrique}", "\\text{Règle de puissance}"],
+    "hint_latex": "\\text{Poser } t=x^2 \\text{ puis parties}"
+  },
+  {
+    "id": "int_l3_012",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\sin^3(2x)\\cos^2 x \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Identités trigonométriques}",
+    "choices_latex": ["\\text{Identités trigonométriques}", "\\text{Fractions partielles}", "\\text{Substitution trigonométrique}", "\\text{Intégration par parties}"],
+    "hint_latex": "\\text{Linéariser avec les identités trigo}"
+  },
+  {
+    "id": "int_l3_013",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\sqrt{e^{2x} - 4} \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Substitution trigonométrique}",
+    "choices_latex": ["\\text{Substitution trigonométrique}", "\\text{Fractions partielles}", "\\text{Intégration par parties}", "\\text{Règle de puissance}"],
+    "hint_latex": "u=e^x \\text{ puis } u = 2\\sec\\theta"
+  },
+  {
+    "id": "int_l3_014",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\frac{x^3 - 2x^2 + x + 3}{(2+x^2)(x+1)^2} \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Fractions partielles}",
+    "choices_latex": ["\\text{Fractions partielles}", "\\text{Substitution trigonométrique}", "\\text{Intégration par parties}", "\\text{Identités trigonométriques}"],
+    "hint_latex": "\\frac{Ax+B}{2+x^2} + \\frac{C}{x+1} + \\frac{D}{(x+1)^2}"
+  },
+  {
+    "id": "int_l3_015",
+    "category": "integrales",
+    "difficulty": 3,
+    "type": "qcm_methode",
+    "prompt_latex": "\\int \\frac{1 + \\cos x}{e^{2x}} \\, dx \\;\\text{: quelle technique ?}",
+    "answer_latex": "\\text{Intégration par parties}",
+    "choices_latex": ["\\text{Intégration par parties}", "\\text{Fractions partielles}", "\\text{Substitution trigonométrique}", "\\text{Règle de puissance}"],
+    "hint_latex": "e^{-2x}(1+\\cos x),\\; \\text{parties pour } e^{-2x}\\cos x"
+  },
+  {
+    "id": "ens_l1_001",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "7",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Entier positif} \\Rightarrow \\mathbb{N}"
+  },
+  {
+    "id": "ens_l1_002",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "0",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "0 \\in \\mathbb{N}"
+  },
+  {
+    "id": "ens_l1_003",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "42",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Entier positif} \\Rightarrow \\mathbb{N}"
+  },
+  {
+    "id": "ens_l1_004",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "256",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Entier positif} \\Rightarrow \\mathbb{N}"
+  },
+  {
+    "id": "ens_l1_005",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "-3",
+    "answer_latex": "\\text{Entier } \\mathbb{Z}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Entier négatif} \\Rightarrow \\mathbb{Z}"
+  },
+  {
+    "id": "ens_l1_006",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "-12",
+    "answer_latex": "\\text{Entier } \\mathbb{Z}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Entier négatif} \\Rightarrow \\mathbb{Z}"
+  },
+  {
+    "id": "ens_l1_007",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "-1",
+    "answer_latex": "\\text{Entier } \\mathbb{Z}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Entier négatif} \\Rightarrow \\mathbb{Z}"
+  },
+  {
+    "id": "ens_l1_008",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "-100",
+    "answer_latex": "\\text{Entier } \\mathbb{Z}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Entier négatif} \\Rightarrow \\mathbb{Z}"
+  },
+  {
+    "id": "ens_l1_009",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "\\frac{3}{4}",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Fraction non entière} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l1_010",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "-\\frac{2}{5}",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Fraction non entière} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l1_011",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "\\frac{7}{2}",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Fraction non entière} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l1_012",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "0{,}5",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "0{,}5 = \\frac{1}{2} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l1_013",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "1{,}25",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "1{,}25 = \\frac{5}{4} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l1_014",
+    "category": "ensembles",
+    "difficulty": 1,
+    "type": "qcm",
+    "prompt_latex": "-0{,}75",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "-0{,}75 = -\\frac{3}{4} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l2_001",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{2}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\sqrt{2}=1{,}414\\ldots \\text{ non périodique} \\Rightarrow \\text{irrationnel}"
+  },
+  {
+    "id": "ens_l2_002",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{3}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\sqrt{3} \\text{ est irrationnel}"
+  },
+  {
+    "id": "ens_l2_003",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{5}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\sqrt{5} \\text{ est irrationnel}"
+  },
+  {
+    "id": "ens_l2_004",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{7}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\sqrt{7} \\text{ est irrationnel}"
+  },
+  {
+    "id": "ens_l2_005",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\pi",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\pi \\text{ est irrationnel}"
+  },
+  {
+    "id": "ens_l2_006",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "e",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "e \\text{ est irrationnel}"
+  },
+  {
+    "id": "ens_l2_007",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "1+\\sqrt{2}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{rationnel} + \\text{irrationnel} \\Rightarrow \\text{irrationnel}"
+  },
+  {
+    "id": "ens_l2_008",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "2\\sqrt{3}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "2\\sqrt{3} \\text{ est irrationnel}"
+  },
+  {
+    "id": "ens_l2_009",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{4}",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\sqrt{4}=2 \\Rightarrow \\mathbb{N}"
+  },
+  {
+    "id": "ens_l2_010",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{9}",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\sqrt{9}=3 \\Rightarrow \\mathbb{N}"
+  },
+  {
+    "id": "ens_l2_011",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{25}",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\sqrt{25}=5 \\Rightarrow \\mathbb{N}"
+  },
+  {
+    "id": "ens_l2_012",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\frac{5}{3}",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\text{Fraction non entière} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l2_013",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "0{,}2",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "0{,}2 = \\frac{1}{5} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l2_014",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "-\\sqrt{2}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "-\\sqrt{2} \\text{ est irrationnel}"
+  },
+  {
+    "id": "ens_l2_015",
+    "category": "ensembles",
+    "difficulty": 2,
+    "type": "qcm",
+    "prompt_latex": "\\frac{\\pi}{2}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}"],
+    "hint_latex": "\\frac{\\pi}{2} \\text{ est irrationnel}"
+  },
+  {
+    "id": "ens_l3_001",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "2+3i",
+    "answer_latex": "\\text{Complexe } \\mathbb{C}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\text{partie imaginaire} \\neq 0 \\Rightarrow \\mathbb{C}"
+  },
+  {
+    "id": "ens_l3_002",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "1-i",
+    "answer_latex": "\\text{Complexe } \\mathbb{C}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\text{partie imaginaire} \\neq 0 \\Rightarrow \\mathbb{C}"
+  },
+  {
+    "id": "ens_l3_003",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "-3+4i",
+    "answer_latex": "\\text{Complexe } \\mathbb{C}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\text{partie imaginaire} \\neq 0 \\Rightarrow \\mathbb{C}"
+  },
+  {
+    "id": "ens_l3_004",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "5i",
+    "answer_latex": "\\text{Complexe } \\mathbb{C}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\text{imaginaire pur} \\Rightarrow \\mathbb{C}"
+  },
+  {
+    "id": "ens_l3_005",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "-2i",
+    "answer_latex": "\\text{Complexe } \\mathbb{C}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\text{imaginaire pur} \\Rightarrow \\mathbb{C}"
+  },
+  {
+    "id": "ens_l3_006",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "i",
+    "answer_latex": "\\text{Complexe } \\mathbb{C}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "i=\\sqrt{-1} \\Rightarrow \\mathbb{C}"
+  },
+  {
+    "id": "ens_l3_007",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{-9}",
+    "answer_latex": "\\text{Complexe } \\mathbb{C}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\sqrt{-9}=3i \\Rightarrow \\mathbb{C}"
+  },
+  {
+    "id": "ens_l3_008",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{-4}",
+    "answer_latex": "\\text{Complexe } \\mathbb{C}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\sqrt{-4}=2i \\Rightarrow \\mathbb{C}"
+  },
+  {
+    "id": "ens_l3_009",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt[3]{8}",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\sqrt[3]{8}=2 \\Rightarrow \\mathbb{N}"
+  },
+  {
+    "id": "ens_l3_010",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt[3]{-27}",
+    "answer_latex": "\\text{Entier } \\mathbb{Z}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\sqrt[3]{-27}=-3 \\Rightarrow \\mathbb{Z}"
+  },
+  {
+    "id": "ens_l3_011",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "\\frac{22}{7}",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\frac{22}{7} \\text{ est une fraction} \\Rightarrow \\mathbb{Q}\\ (\\neq \\pi)"
+  },
+  {
+    "id": "ens_l3_012",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "0{,}\\overline{3}",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "0{,}\\overline{3}=\\frac{1}{3} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l3_013",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "\\sqrt{\\frac{9}{16}}",
+    "answer_latex": "\\text{Rationnel } \\mathbb{Q}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\sqrt{\\frac{9}{16}}=\\frac{3}{4} \\Rightarrow \\mathbb{Q}"
+  },
+  {
+    "id": "ens_l3_014",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "3+\\sqrt{5}",
+    "answer_latex": "\\text{Irrationnel}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\text{rationnel} + \\text{irrationnel} \\Rightarrow \\text{irrationnel}"
+  },
+  {
+    "id": "ens_l3_015",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "\\frac{6}{2}",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "\\frac{6}{2}=3 \\Rightarrow \\mathbb{N}"
+  },
+  {
+    "id": "ens_l3_016",
+    "category": "ensembles",
+    "difficulty": 3,
+    "type": "qcm",
+    "prompt_latex": "2+0i",
+    "answer_latex": "\\text{Naturel } \\mathbb{N}",
+    "choices_latex": ["\\text{Naturel } \\mathbb{N}", "\\text{Entier } \\mathbb{Z}", "\\text{Rationnel } \\mathbb{Q}", "\\text{Irrationnel}", "\\text{Réel } \\mathbb{R}", "\\text{Complexe } \\mathbb{C}"],
+    "hint_latex": "2+0i = 2 \\Rightarrow \\mathbb{N}"
   }
   ]
 }
